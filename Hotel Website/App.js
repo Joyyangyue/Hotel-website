@@ -1,6 +1,7 @@
 let searchBtn = document.querySelector('#search-btn');
 let searchBar = document.querySelector('.search-bar-container');
 let loginFormBtn = document.querySelector('#login-btn');
+let loginFormBtn_fromRegister = document.querySelector('#login-btn-fromregister');
 let loginForm = document.querySelector('.login-form-container');
 let loginformClose = document.querySelector('#login-form-close');
 let menu = document.querySelector('#menu-bar');
@@ -31,6 +32,12 @@ searchBtn.addEventListener('click', () =>{
 
 loginFormBtn.addEventListener('click', () =>{
     loginForm.classList.add('active');
+    registerForm.classList.remove('active');
+});
+
+loginFormBtn_fromRegister.addEventListener('click', () =>{
+    loginForm.classList.add('active');
+    registerForm.classList.remove('active');
 });
 
 loginformClose.addEventListener('click', () =>{
@@ -39,6 +46,7 @@ loginformClose.addEventListener('click', () =>{
 });
 
 registerFormBtn.addEventListener('click', () =>{
+    loginForm.classList.remove('active');
     registerForm.classList.add('active');
 });
 

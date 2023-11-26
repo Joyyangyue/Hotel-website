@@ -1,3 +1,8 @@
+<?php
+    require_once 'includes/config_session-inc.php';
+    require_once 'includes/register_view-inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,9 +24,15 @@
 </head>
 <body>
  
+    <div class="error">
+            <?php
+            check_register_errors();
+            ?>
+    </div>
+
     <!-- header section starts -->
     <header>
-
+        
         <div id="menu-bar" class="fas fa-bars"></div>
 
         <a href="#" class="logo"><span>H</span>otel</a>
@@ -45,6 +56,11 @@
         </form>
     </header>
 
+    
+
+
+    
+
 
     <!-- custume js file link -->
 
@@ -54,12 +70,12 @@
         <i class="fas fa-times" id="login-form-close"></i>
         <form action="includes/login-inc.php" method="post">
             <h3>login</h3>
-            <input type="email" name="email" class="box" placeholder="enter your email">
-            <input type="password" name="password" class="box" placeholder="enter your password">
-            <input type="submit" value="login now" class="btn">
+            <input type="email" name="email" class="box" placeholder="Email">
+            <input type="password" name="password" class="box" placeholder="Password">
+            <input type="submit" value="Login" class="btn">
             <input type="checkbox" id="remember">
             <label for="remember">Remember me</label>
-            <p>forget password? <a href="#">click here</a></p>
+            <p>forgot password? <a href="#">click here</a></p>
             <p>don't have and account? <a id="register-btn" href="#">register now</a></p>
         </form>
     </div>
@@ -75,11 +91,18 @@
             <input type="email" name="email" class="box" placeholder="Email">
             <input type="password" name="password" class="box" placeholder="Password">
             <input type="password" name="password-again" class="box" placeholder="Password again">
-            <input type="submit" value="login now" class="btn">            
-            <p>forget password? <a href="#">click here</a></p>
-            <p>already have and account? <a href="#">log in</a></p>
+            <input type="submit" value="register" class="btn">            
+            <p>forgot password? <a href="#">click here</a></p>
+            <p>already have and account? <a id="login-btn-fromregister" href="#">login</a></p>
+            
         </form>
+        
     </div>
+
+    <!-- registration error container -->
+
+
+    
 
 
 
