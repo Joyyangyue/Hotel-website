@@ -51,8 +51,8 @@
     <!-- login form container -->
 
     <div class="login-form-container">
-        <i class="fas fa-times" id="form-close"></i>
-        <form action="includes/formhandler-inc.php" method="post">
+        <i class="fas fa-times" id="login-form-close"></i>
+        <form action="includes/login-inc.php" method="post">
             <h3>login</h3>
             <input type="email" name="email" class="box" placeholder="enter your email">
             <input type="password" name="password" class="box" placeholder="enter your password">
@@ -60,9 +60,28 @@
             <input type="checkbox" id="remember">
             <label for="remember">Remember me</label>
             <p>forget password? <a href="#">click here</a></p>
-            <p>don't have and account? <a href="#">register now</a></p>
+            <p>don't have and account? <a id="register-btn" href="#">register now</a></p>
         </form>
     </div>
+
+    <!-- register form container -->
+
+    <div class="register-form-container">
+        <i class="fas fa-times" id="register-form-close"></i>
+        <form action="includes/register-inc.php" method="post">
+            <h3>register</h3>
+            <input type="text" name="first-name" class="box" placeholder="First Name">
+            <input type="text" name="last-name" class="box" placeholder="Last Name">
+            <input type="email" name="email" class="box" placeholder="Email">
+            <input type="password" name="password" class="box" placeholder="Password">
+            <input type="password" name="password-again" class="box" placeholder="Password again">
+            <input type="submit" value="login now" class="btn">            
+            <p>forget password? <a href="#">click here</a></p>
+            <p>already have and account? <a href="#">log in</a></p>
+        </form>
+    </div>
+
+
 
 <!-- home section starts -->
 
