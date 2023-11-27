@@ -1,11 +1,15 @@
 let searchBtn = document.querySelector('#search-btn');
 let searchBar = document.querySelector('.search-bar-container');
-let formBtn = document.querySelector('#login-btn');
+let loginFormBtn = document.querySelector('#login-btn');
+let loginFormBtn_fromRegister = document.querySelector('#login-btn-fromregister');
 let loginForm = document.querySelector('.login-form-container');
-let formClose = document.querySelector('#form-close');
+let loginformClose = document.querySelector('#login-form-close');
 let menu = document.querySelector('#menu-bar');
 let navbar = document.querySelector('.navbar');
 let videoBtn = document.querySelectorAll('.vid-btn');
+let registerForm = document.querySelector('.register-form-container');
+let registerFormBtn = document.querySelector('#register-btn');
+let registerFormClose = document.querySelector('#register-form-close');
 
 
 window.onscroll = () =>{
@@ -26,13 +30,31 @@ searchBtn.addEventListener('click', () =>{
     searchBar.classList.toggle('active');
 })
 
-formBtn.addEventListener('click', () =>{
+loginFormBtn.addEventListener('click', () =>{
     loginForm.classList.add('active');
+    registerForm.classList.remove('active');
 });
 
-formClose.addEventListener('click', () =>{
+loginFormBtn_fromRegister.addEventListener('click', () =>{
+    loginForm.classList.add('active');
+    registerForm.classList.remove('active');
+});
+
+loginformClose.addEventListener('click', () =>{
+    registerForm.classList.remove('active');
     loginForm.classList.remove('active');
 });
+
+registerFormBtn.addEventListener('click', () =>{
+    loginForm.classList.remove('active');
+    registerForm.classList.add('active');
+});
+
+registerFormClose.addEventListener('click', () => {
+    loginForm.classList.remove('active');
+    registerForm.classList.remove('active');
+});
+
 
 videoBtn.forEach(btn => {
     btn.addEventListener('click', () => {
