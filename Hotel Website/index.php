@@ -25,9 +25,7 @@
 <body>
  
     <div class="error">
-            <?php
-            check_register_errors();
-            ?>
+            
     </div>
 
     <!-- header section starts -->
@@ -94,8 +92,11 @@
             <input type="submit" value="register" class="btn">            
             <p>forgot password? <a href="#">click here</a></p>
             <p>already have and account? <a id="login-btn-fromregister" href="#">login</a></p>
-            
+            <?php
+            check_register_errors();
+            ?>
         </form>
+        
         
     </div>
 

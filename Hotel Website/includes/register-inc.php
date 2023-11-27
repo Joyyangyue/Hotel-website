@@ -27,6 +27,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if (is_email_taken($pdo, $email)){
             $errors["email_taken"] = "Email already registered!";
         }
+        if (is_password_tooShort($password)){
+            $errors["password_too_short"] = "Password is too short!";
+        }
+        if (passwords_dont_match($password, $passwordAgain)){
+            $errors["passwords_dont_match"] = "Passwords don't match!";
+        }
+
 
         require_once 'config_session-inc.php';
         

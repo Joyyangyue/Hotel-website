@@ -8,7 +8,7 @@ function check_register_errors()
         echo "<br>";
 
         foreach($errors as $error){
-            echo '<p>' . $error . '</p>';
+            echo '<p class="error">' . $error . '</p>';
         }
 
         

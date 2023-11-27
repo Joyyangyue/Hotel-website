@@ -263,6 +263,13 @@ header .search-bar-container label:hover{
     padding:1rem 0;
 }
 
+.register-form-container form .error{
+    color:red;
+    padding:.5rem 0;
+    font-size: 1.5rem;
+}
+
+
 .register-form-container form .box{
     width: 100%;
     padding:1rem;
@@ -312,6 +319,14 @@ header .search-bar-container label:hover{
     font-size: 5rem;
     color: #fff;
     cursor: pointer;
+}
+
+.error{
+    color: red;
+}
+
+.error.active{
+    visibility: visible;
 }
 
 .error-container{
