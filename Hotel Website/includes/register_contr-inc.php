@@ -36,3 +36,7 @@ function passwords_dont_match($password, $passwordAgain){
     }
     else{return false;}
 }
+
+function registerUser(object $pdo, string $firstName, string $lastName, string $email, string $password){
+    register($pdo, $firstName, $lastName, $email, $password);
+}

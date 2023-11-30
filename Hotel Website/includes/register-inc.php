@@ -44,6 +44,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             die();
         }
 
+        registerUser($pdo, $firstName, $lastName, $email, $password);
+
+        header("Location: ../index.php");
+        $pdo = null;
+        $stmt = null;
 
     } catch (PDOException $e) {
         die("Query failed: " . $e->getMessage());

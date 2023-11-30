@@ -11,6 +11,7 @@ let registerForm = document.querySelector('.register-form-container');
 let registerFormBtn = document.querySelector('#register-btn');
 let registerFormClose = document.querySelector('#register-form-close');
 
+let x = 0;
 
 window.onscroll = () =>{
     searchBtn.classList.remove('fa-times');

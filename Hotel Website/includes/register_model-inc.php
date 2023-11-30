@@ -12,3 +12,14 @@ function get_email(object $pdo, string $email)
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     return $result;
 }
+
+function register(object $pdo, string $firstName, string $lastName, string $email, string $password){
+    $query = ("INSERT INTO user (email, password, first_name, last_name) VALUES (:email, MD5(:password), :firstName, :lastName);");
+    $stmt = $pdo->prepare($query);    
+    $stmt->bindParam(":email", $email);
+    $stmt->bindParam(":password", $password);
+    $stmt->bindParam(":firstName", $firstName);
+    $stmt->bindParam(":lastName", $lastName);
+    $stmt->execute();
+    
+}
