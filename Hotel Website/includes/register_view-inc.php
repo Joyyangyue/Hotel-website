@@ -15,4 +15,8 @@ function check_register_errors()
 
         unset($_SESSION["error_signup"]);
     }
+    else if(isset($_GET['register']) && $_GET['register'] === "success"){
+        echo '<br>';
+        echo '<p class="form-success">Login successful!</p>';
+    }
 }

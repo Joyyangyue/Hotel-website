@@ -1,6 +1,7 @@
 <?php
     require_once 'includes/config_session-inc.php';
     require_once 'includes/register_view-inc.php';
+    require_once 'includes/login_view-inc.php';
 ?>
 
 <!DOCTYPE html>
@@ -75,6 +76,9 @@
             <label for="remember">Remember me</label>
             <p>forgot password? <a href="#">click here</a></p>
             <p>don't have and account? <a id="register-btn" href="#">register now</a></p>
+            <?php
+            check_login_errors();
+            ?>
         </form>
     </div>
 

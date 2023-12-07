@@ -46,7 +46,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         registerUser($pdo, $firstName, $lastName, $email, $password);
 
-        header("Location: ../index.php");
+        header("Location: ../index.php?register=success");
         $pdo = null;
         $stmt = null;
 
