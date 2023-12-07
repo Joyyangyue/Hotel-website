@@ -16,8 +16,8 @@ function is_username_wrong(bool|array $result){
     }    
 }
 
-function is_password_wrong(string $password, string $hashedPassword){
-    if(!password_verify($password, $hashedPassword)){
+function is_password_wrong(string $password, string $cryptedPassword){
+    if(md5($password) != $cryptedPassword){
         return true;
     }
     else{
