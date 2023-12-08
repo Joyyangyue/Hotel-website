@@ -2,6 +2,7 @@
     require_once 'includes/config_session-inc.php';
     require_once 'includes/register_view-inc.php';
     require_once 'includes/login_view-inc.php';
+    include 'includes/dbh-inc.php'
 ?>
 
 <!DOCTYPE html>
@@ -159,11 +160,48 @@
         <form action="">
             <div class="inputBox">
                 <h3>where to</h3>
-                <input type="text" placeholder="place name">
+                <select name="places" id="places">
+                    <?php
+                    $query = "SELECT destination_name, available_space FROM hotel;";
+                    $statement = $pdo->prepare($query);
+                    $statement->execute();
+            
+                    $result = $statement->fetchAll();
+
+                    
+                    foreach($result as $place)
+                    {
+                        ?>
+                            <option><?=$place['destination_name']?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
+
+                <select name="howmany" id="howmany">
+                    <?php
+
+                    
+                    ?>
+                    </select>
+                    <?php
+                    ?>
+                
             </div>
             <div class="inputBox">
                 <h3>how many</h3>
-                <input type="number" placeholder="number of guests">
+                <select name="places" id="places">
+                    <?php
+                    $query = "SELECT available_space FROM hotel;";
+                    $statement = $pdo->prepare($query);
+                    $statement->execute();
+            
+                    $result = $statement->fetchAll();
+                    
+                    
+                    
+                    ?>
+                </select>
             </div>
             <div class="inputBox">
                 <h3>arrivals</h3>
@@ -195,8 +233,60 @@
     </h1>
 
     
-
     <div class="box-container">
+    <?php
+        $query = "SELECT destination_name, description, price, available_space, image_path FROM hotel;";
+        $statement = $pdo->prepare($query);
+        $statement->execute();
+
+        $result = $statement->fetchAll();
+        if($result)
+        {
+            foreach($result as $place)
+            {                
+                ?>
+                
+                <div class="box">                    
+                    <img src="img/<?=$place["image_path"];?>" alt="">
+                    <div class="content">
+                        <h3><i class="fas fa-map-marker-alt"></i><?=$place['destination_name'];?></h3> 
+                        <p class="normal-p"><?=$place['description'];?></p>  
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>  
+                        <div class="price"><p>$<?=$place['price'];?></p><span>$120.00</span></div>
+                        <?php
+                            if(intval($place['available_space']) <= 3){
+                                ?>
+                                    <p class="low-available">Avaible space: <?=$place['available_space'];?></p>
+                                <?php
+                            }
+                            else{
+                                ?>
+                                <p class="normal-p right-align">Avaible space: <?=$place['available_space'];?></p>
+                                <?php
+                            }
+                        ?>
+                        
+                        <a href="#book" class="btn">book now</a>
+                    </div>
+                </div>  
+            <?php
+            }
+
+            
+        }
+        else{
+
+        }
+    ?>
+    </div>
+
+    <!--<div class="box-container">
         <div class="box">
             <img src="img/p-1.jpg" alt="">
             <div class="content">
@@ -298,7 +388,7 @@
                 <a href="#" class="btn">book now</a>
             </div>
         </div>  
-    </div>  
+    </div>  -->
 </section>
 
 

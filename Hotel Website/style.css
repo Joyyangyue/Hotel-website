@@ -578,7 +578,6 @@ header .search-bar-container label:hover{
 
 .packages .box-container .box .content p{
     font-size:1.7rem;
-    color: #666;
     padding:1rem 0;
 }
 
@@ -598,6 +597,15 @@ header .search-bar-container label:hover{
     font-size: 1.5rem;
     text-decoration: line-through;
 }
+
+.low-available{
+    color: red;
+}
+
+.normal-p{
+    color: #666;
+}
+
 
 .services .box-container{
     display:flex;
