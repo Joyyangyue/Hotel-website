@@ -258,7 +258,7 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>  
-                        <div class="price"><p>$<?=$place['price'];?></p><span>$120.00</span></div>
+                        <div class="price"><p>$<?=$place['price'] - 0.01;?></p><span>$<?=$place['price']*2?></span></div>
                         <?php
                             if(intval($place['available_space']) <= 3){
                                 ?>
