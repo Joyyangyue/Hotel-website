@@ -244,11 +244,11 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>  
-<<<<<<< HEAD
+
                         <div class="price"><p>$<?=$place['price']-0.01;?></p><span>$150/night</span></div>
-=======
+
                         <div class="price"><p>$<?=$place['price'] - 0.01;?></p><span>$<?=$place['price']*2?></span></div>
->>>>>>> 719b314f0ac316f40407038d749f89b5f397ca64
+
                         <?php
                             if(intval($place['available_space']) <= 3){
                                 ?>
