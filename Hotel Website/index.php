@@ -2,6 +2,7 @@
     require_once 'includes/config_session-inc.php';
     require_once 'includes/register_view-inc.php';
     require_once 'includes/login_view-inc.php';
+    require_once 'includes/book_view-inc.php';
     include 'includes/dbh-inc.php'
 ?>
 
@@ -35,7 +36,7 @@
         
         <div id="menu-bar" class="fas fa-bars"></div>
 
-        <a href="#" class="logo"><span>H</span>otel</a>
+        <a href="index.php" class="logo"><span>H</span>otel</a>
         <nav class="navbar">
             <a href="#home">home</a>
             <a href="#book">book</a>
@@ -157,61 +158,46 @@
             <img src="img/book-img.png" alt="">
         </div>
 
-        <form action="">
+        <form action="includes/book-inc.php" method="post">            
             <div class="inputBox">
                 <h3>where to</h3>
-                <select name="places" id="places">
-                    <?php
-                    $query = "SELECT destination_name, available_space FROM hotel;";
-                    $statement = $pdo->prepare($query);
-                    $statement->execute();
-            
-                    $result = $statement->fetchAll();
-
-                    
-                    foreach($result as $place)
-                    {
-                        ?>
-                            <option><?=$place['destination_name']?></option>
-                        <?php
-                    }
-                    ?>
+                <select name="place-name">
+                <?php
+                $query = "SELECT destination_name FROM hotel WHERE available_space != 0;";
+                $statement = $pdo->prepare($query);
+                $statement->execute();
+        
+                $result = $statement->fetchAll();
+                foreach($result as $place){
+                    ?> <option><?=$place["destination_name"]?></option> <?php
+                }
+                ?>
                 </select>
-
-                <select name="howmany" id="howmany">
-                    <?php
-
-                    
-                    ?>
-                    </select>
-                    <?php
-                    ?>
-                
             </div>
             <div class="inputBox">
                 <h3>how many</h3>
-                <select name="places" id="places">
-                    <?php
-                    $query = "SELECT available_space FROM hotel;";
-                    $statement = $pdo->prepare($query);
-                    $statement->execute();
-            
-                    $result = $statement->fetchAll();
+                <select name="guest-number" aria-placeholder="number of guests">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
                     
-                    
-                    
-                    ?>
                 </select>
+                
             </div>
             <div class="inputBox">
                 <h3>arrivals</h3>
-                <input type="date">
+                <input type="date" name="arrival">
             </div>
             <div class="inputBox">
                 <h3>leaving</h3>
-                <input type="date">
+                <input type="date" name="leaving">
             </div>
             <input type="submit" class="btn" value="book now">
+            <?php
+            check_booking_errors();
+            ?>
         </form>
     </div>
 </section>
@@ -258,7 +244,7 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>  
-                        <div class="price"><p>$<?=$place['price'];?></p><span>$120.00</span></div>
+                        <div class="price"><p>$<?=$place['price']-0.01;?></p><span>$150/night</span></div>
                         <?php
                             if(intval($place['available_space']) <= 3){
                                 ?>

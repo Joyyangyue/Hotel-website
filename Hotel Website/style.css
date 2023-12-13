@@ -230,6 +230,18 @@ header .search-bar-container label:hover{
     cursor: pointer;
 }
 
+.book .form-success{
+    color:green;
+    padding:.5rem 0;
+    font-size: 1.7rem;
+}
+
+.book .error{
+    color:red;
+    padding:.5rem 0;
+    font-size: 1.7rem;
+}
+
 .register-form-container{
     position:fixed;
     top: -120%;

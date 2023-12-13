@@ -3,7 +3,9 @@
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $email = $_POST["email"];
     $password = $_POST["password"];
+    //unset($_SESSION["logged_in_user"]);
     try{
+
         require_once 'dbh-inc.php';
         require_once 'login_model-inc.php';
         require_once 'login_contr-inc.php';
@@ -35,6 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
 
         header("Location: ../index.php?login=success");
+        //$_SESSION["logged_in_user"] = getUserID($pdo, $email);
         $pdo = null;
         $stmt = null;
 
