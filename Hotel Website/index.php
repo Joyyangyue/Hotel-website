@@ -245,7 +245,7 @@
                             <i class="fas fa-star"></i>
                         </div>  
 
-                        <div class="price"><p>$<?=$place['price']-0.01;?></p><span>$150/night</span></div>
+                        
 
                         <div class="price"><p>$<?=$place['price'] - 0.01;?></p><span>$<?=$place['price']*2?></span></div>
 
